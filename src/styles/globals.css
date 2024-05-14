@@ -1,0 +1,230 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+#FirstbannerofHomepage {
+  background-image: url(../../public/backgroundImageforHome1.jpg);
+  background-size: cover; /* This will make sure the background image covers the entire container */
+  background-position: center; /* This will center the background image within the container */
+  width: 100vw;
+  height: 80vh;
+}
+.MedeazeColor{
+  color: rgb(245, 121, 59);
+}
+#FirstbannerofHomepage h2{
+  color: white;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-size: 3rem;
+  line-height: 4rem;
+}
+#FirstbannerofHomepage .text-lg {
+  font-size: 1.5rem;
+  line-height: 2.75rem;
+  color: antiquewhite;
+}
+#FirstbannerofHomepage a{
+  color: inherit;
+  text-decoration: inherit;
+  color: rgb(245, 121, 59);
+  border: 1px solid;
+  padding: 1rem;
+  border-radius: 15px;
+}
+.SuccessStory{
+  margin-top: 3rem;
+}
+
+#AboutusHeading3{
+  margin-top: 2rem;
+  color: #223651;
+  font-size: 2.5rem;
+  
+
+}
+#aboutusPara{
+  margin-top: 2rem;
+  font-size: 1.4rem;
+  line-height: 2.3rem;
+}
+#AboutusSection{
+  background: navajowhite;
+}
+
+/* Styles for the Local SEO section */
+.local-seo-section {
+  background-color: #f9f9f9;
+  padding: 50px 0;
+}
+
+.local-seo-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.seo-item {
+  width: calc(50% - 20px);
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.seo-item h3 {
+  color: #333;
+}
+
+/* Styles for the Engaging Patient Journeys section */
+.engaging-patient-section {
+  padding: 50px 0;
+}
+
+.engaging-patient-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.patient-item {
+  width: calc(50% - 20px);
+  margin-bottom: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+}
+
+.patient-item h3 {
+  color: rgb(34, 54, 81);
+}
+
+.text-gray-900{
+  color: #223651;
+}
+.local-seo-section,.engaging-patient-section{
+  text-align: -moz-center;
+  background-color: #223651;
+}
+
+  .local-seo-section h2,.engaging-patient-section h2{
+    font-size: 2rem;
+  color: navajowhite;
+  margin-bottom: 2rem;
+  }
+  .local-seo-section h1{
+    font-size: 3rem;
+    color: rgb(245, 121, 59);
+    margin-bottom: 2rem;
+    font-weight: 700;
+  }
+  .seo-item h3,.patient-item h3{
+    color: #311877;
+    font-size: 1.5rem;
+    margin-bottom: .8rem;
+  }
+  /* Styles for the Medeaze Edge section */
+.medeaze-edge-section {
+  background-color: navajowhite;
+  padding: 50px 0;
+}
+
+.medeaze-edge-section .container {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.medeaze-edge-section h2 {
+  color: #333;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+.medeaze-edge-section p {
+  color: #666;
+  font-size: 19px;
+  margin-bottom: 30px;
+}
+
+.medeaze-edge-section ul {
+  
+  padding: 0;
+  margin: 0;
+  list-style-type: disclosure-closed;
+}
+
+.medeaze-edge-section ul li {
+  color: #444;
+  font-size: 16px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .medeaze-edge-section .container {
+    padding: 0 20px;
+  }
+}
+
+#logoonnavbar{
+  max-width: 100%;
+  height: auto;
+  margin-left: 40%;
+  width: 150px;
+  height: 60px;
+  background: white;
+
+}
+
+#navbarsection{
+  background: white;
+}
+#NavBarContent{
+  color: black;
+}
+#optionsinService{
+  background-color: white;
+  color: rgb(24, 23, 23);
+}
+
+#optionsinService:hover{
+  background-color: rgb(245, 121, 59);
+  color: rgb(0, 0, 0);
+}
+.hover\:text-white:hover{
+  background-color: rgb(245, 121, 59)!important;
+}
+#Optionmenudiv{
+  background-color: white;
+}
