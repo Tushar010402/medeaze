@@ -1,8 +1,11 @@
-import Image from "next/image";
+import Image from "../../node_modules/next/image";
+
 import React, { useState, useRef, useEffect } from 'react';
 import Select from 'react-select';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import { motion } from 'framer-motion';
+
 
 
 
@@ -345,32 +348,80 @@ const Navbar = () => {
       {/* Section for Home Pages */}
       <section className="bg-gray-100 py-16 flex items-center justify-center" id="FirstbannerofHomepage">
   <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="text-center">
-      <h2 className="text-6xl lg:text-4xl font-extrabold text-gray-900"><span className="MedeazeColor">Medeaze: </span>Where Medical Expertise Meets Digital Excellence</h2>
-      <p className="mt-4 text-lg text-black-500">Delve into the realm of growth and let your practice shine.</p>
-      <div className="SuccessStory">
-      <a href="#contactUsForm" class="cta-button">Begin Your Success Story</a>
-    </div>
-    </div>
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 1 }}
+      className="text-center"
+    >
+      <h2 className="text-6xl lg:text-4xl font-extrabold text-gray-900">
+        <span className="MedeazeColor">Medeaze: </span>Where Medical Expertise Meets Digital Excellence
+      </h2>
+      <motion.p
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.5 }}
+        className="mt-4 text-lg text-black-500"
+      >
+        Delve into the realm of growth and let your practice shine.
+      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 1 }}
+        className="SuccessStory"
+      >
+        <a href="#contactUsForm" className="cta-button">
+          Begin Your Success Story
+        </a>
+      </motion.div>
+    </motion.div>
   </div>
-</section>
+</section>;
 
 
  {/* About Us Section */}
  <section className="bg-gray-100 py-16" id="AboutusSection">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900">About Us</h2>
-            <h3 className="text-4xl lg:text-5xl font-extrabold text-gray-900" id="AboutusHeading3">Understanding Dentistry Like No Other</h3>
-            <p className="mt-4 text-lg text-gray-500" id="aboutusPara">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center">
+          <motion.h2
+            className="text-4xl lg:text-5xl font-extrabold text-gray-900"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            About Us
+          </motion.h2>
+          <motion.h3
+            className="text-4xl lg:text-5xl font-extrabold text-gray-900"
+            id="AboutusHeading3"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+          >
+            Understanding Dentistry Like No Other
+          </motion.h3>
+          <motion.p
+            className="mt-4 text-lg text-gray-500"
+            id="aboutusPara"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.6 }}
+          >
             At Medeaze, we blend dental proficiency with marketing acumen to offer you strategies that are not just effective but empathetic to the core of dental care.
-            </p>
-            {/* Read More Button */}
-            <button className="mt-8 bg-gray-800 text-white px-6 py-3 rounded-md shadow-lg hover:bg-gray-700 transition duration-300">Read More</button>
-          </div>
+          </motion.p>
+          {/* Read More Button */}
+          <motion.button
+            className="mt-8 bg-gray-800 text-white px-6 py-3 rounded-md shadow-lg hover:bg-gray-700 transition duration-300"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, delay: 0.9 }}
+          >
+            Read More
+          </motion.button>
         </div>
-      </section>
-
+      </div>
+    </section>
 
 
 
