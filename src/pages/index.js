@@ -1,4 +1,5 @@
-import Image from "../../node_modules/next/image";
+import Image from "next/image";
+
 
 import React, { useState, useRef, useEffect } from 'react';
 import Select from 'react-select';
