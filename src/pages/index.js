@@ -1,24 +1,23 @@
 
-
-
 import React, { useState, useRef, useEffect } from 'react';
+import Link from 'next/link'; // Import Link from next/link
 import Select from 'react-select';
+import { motion } from 'framer-motion';
+import { Transition } from '@headlessui/react';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
-import { motion } from 'framer-motion';
+import Image from 'next/image'; // Import Image from next/image
 
 
 
 
 // Then use `backgroundImage` in your JSX as the source for the background image
 
-import { Transition } from '@headlessui/react';
 const countryOptions = [
   { value: '+1', label: '+1 (United States)', flag: '🇺🇸' },
   { value: '+44', label: '+44 (United Kingdom)', flag: '🇬🇧' },
   // Add more countries as needed
 ];
-
 const ThankYouPopup = ({ isOpen, onClose }) => {
   const [countdown, setCountdown] = useState(5);
 
@@ -32,13 +31,14 @@ const ThankYouPopup = ({ isOpen, onClose }) => {
     return () => {
       clearInterval(timer);
     };
-  }, [isOpen, countdown]);
+  }, [isOpen, countdown, onClose]); // Added onClose to dependency array
 
   useEffect(() => {
     if (countdown === 0) {
       onClose();
     }
   }, [countdown, onClose]);
+
 
   return (
     <Transition
