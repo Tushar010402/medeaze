@@ -30,7 +30,8 @@ const ThankYouPopup = ({ isOpen, onClose }) => {
     return () => {
       clearInterval(timer);
     };
-  }, [isOpen, countdown, onClose]); // Added onClose to dependency array
+  }, [isOpen, countdown, onClose]); // Remove fetchData from the dependency array
+  
 
   useEffect(() => {
     if (countdown === 0) {
@@ -59,6 +60,7 @@ const ThankYouPopup = ({ isOpen, onClose }) => {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
             </svg>
           </button>
+
         </div>
       </div>
     </Transition>
@@ -280,7 +282,7 @@ const Navbar = () => {
     setShowThankYouPopup(false);
   };
   
-  
+
 
   return (
     <>
@@ -288,26 +290,26 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
         <div className="flex-shrink-0">
-  <Link href="/" legacyBehavior>
-    <a>
-      <Image src="/Medeazelogo.svg" alt="Medeaze Logo" id="logoonnavbar" width={500} height={300} />
-    </a>
-  </Link>
+        <Link href="/" legacyBehavior>
+  <a>
+    <Image src="/Medeazelogo.svg" alt="Medeaze Logo" id="logoonnavbar" width={500} height={300} />
+  </a>
+</Link>
 </div>
 <div className="hidden md:block">
   <div className="ml-10 flex items-baseline space-x-4">
-    <Link href="/home" legacyBehavior>
-      <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-    </Link>
-    <Link href="/about" legacyBehavior>
-      <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">About</a>
-    </Link>
-    <Link href="/services" legacyBehavior>
-      <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Services</a>
-    </Link>
-    <Link href="/contact" legacyBehavior>
-      <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Contact</a>
-    </Link>
+  <Link href="/home" legacyBehavior>
+  <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+</Link>
+<Link href="/home" legacyBehavior>
+  <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+</Link>
+<Link href="/home" legacyBehavior>
+  <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+</Link>
+<Link href="/home" legacyBehavior>
+  <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
+</Link>
   </div>
 </div>
 
@@ -326,9 +328,10 @@ const Navbar = () => {
       transition={{ duration: 1 }}
       className="text-center"
     >
-      <h2 className="text-6xl lg:text-4xl font-extrabold text-gray-900">
-        <span className="MedeazeColor">Medeaze: </span>Where Medical Expertise Meets Digital Excellence
-      </h2>
+     <h2 className="text-6xl lg:text-4xl font-extrabold text-gray-900">
+  <span className="MedeazeColor">Medeaze: </span>Where Medical Expertise Meets Digital Excellence
+</h2>
+
       <motion.p
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
