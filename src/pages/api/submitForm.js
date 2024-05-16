@@ -1,8 +1,8 @@
 import { sql } from '@vercel/postgres';
 
 // Define your username and password
-const USERNAME = 'your_username';
-const PASSWORD = 'your_password';
+const USERNAME = 'TusharAgrawal098';
+const PASSWORD = 'TusharAgrawal@1234567890';
 
 export default async function handler(request, response) {
   // Check if it's a POST request
