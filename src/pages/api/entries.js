@@ -1,12 +1,18 @@
-import { sql } from '@vercel/postgres';
+import { createPool } from '@vercel/postgres';
 
-import { pool } from '../../utils/db';
+// PostgreSQL connection details
+const POSTGRES_URL = process.env.POSTGRES_URL || "postgres://default:wYsbxV7P2kNj@ep-odd-cell-a1hgzrd4-pooler.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require";
+
+// Create a pool for database connections
+const pool = createPool({
+  connectionString: POSTGRES_URL,
+  ssl: {
+    rejectUnauthorized: false // Only use this if you're not using self-signed certificates
+  }
+});
 
 export default async function handler(req, res) {
   try {
-    // Connect to the PostgreSQL database
-    const client = await pool.connect();
-
     // Pagination parameters
     const pageSize = 200;
     const pageNumber = parseInt(req.query.page || 1);
@@ -15,7 +21,7 @@ export default async function handler(req, res) {
     const offset = (pageNumber - 1) * pageSize;
 
     // Query to select entries with pagination and sorting by latest
-    const query = `
+    const query = sql`
       SELECT *
       FROM form_data
       ORDER BY id DESC
@@ -24,10 +30,7 @@ export default async function handler(req, res) {
     `;
 
     // Execute the query
-    const result = await client.query(query);
-
-    // Release the client back to the pool
-    client.release();
+    const result = await pool.query(query);
 
     // Extract the rows from the result
     const entries = result.rows;
@@ -39,4 +42,3 @@ export default async function handler(req, res) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
-
