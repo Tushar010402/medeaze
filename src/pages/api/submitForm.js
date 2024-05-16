@@ -1,28 +1,24 @@
-// pages/api/submitForm.js
+import { sql } from '@vercel/postgres';
 
-import { pool } from '../../utils/db';
-
-export default async function handler(req, res) {
-  if (req.method === 'POST') {
-    const { name, email, country_phone_code, contact, comment } = req.body;
+export default async function handler(request, response) {
+  if (request.method === 'POST') {
+    const { name, email, country_phone_code, contact, comment } = request.body;
 
     // Basic validation
     if (!name || !email || !country_phone_code || !contact || !comment) {
-      return res.status(400).json({ success: false, message: 'All fields are required' });
+      return response.status(400).json({ success: false, message: 'All fields are required' });
     }
 
     try {
       // Insert form data into the database
-      const query = 'INSERT INTO form_data (name, email, country_phone_code, contact, comment) VALUES ($1, $2, $3, $4, $5)';
-      const values = [name, email, country_phone_code, contact, comment];
-      await pool.query(query, values);
+      await sql`INSERT INTO form_data (name, email, country_phone_code, contact, comment) VALUES (${name}, ${email}, ${country_phone_code}, ${contact}, ${comment});`;
 
-      return res.status(201).json({ success: true, message: 'Form data saved successfully' });
+      return response.status(201).json({ success: true, message: 'Form data saved successfully' });
     } catch (error) {
       console.error('Error saving form data:', error);
-      return res.status(500).json({ success: false, message: 'Internal server error' });
+      return response.status(500).json({ success: false, message: 'Internal server error' });
     }
   } else {
-    return res.status(405).json({ success: false, message: 'Method Not Allowed' });
+    return response.status(405).json({ success: false, message: 'Method Not Allowed' });
   }
 }
