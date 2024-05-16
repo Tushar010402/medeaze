@@ -287,16 +287,10 @@ const Navbar = () => {
 
   return (
     <>
-   <Head>
-  <title>Medeaze - Where Medical Expertise Meets Digital Excellence</title>
-  <meta name="description" content="Medeaze is your one-stop solution for dental clinics and dentistry. We offer digital marketing, website development, and social media marketing services tailored for the medical industry." />
-  <meta name="keywords" content="Medeaze, Dentist, Dental Clinics, Digital Marketing, Social Media Marketing, Website Development" />
-  <meta property="og:title" content="Medeaze - Where Medical Expertise Meets Digital Excellence" />
-  <meta property="og:description" content="Medeaze is your one-stop solution for dental clinics and dentistry. We offer digital marketing, website development, and social media marketing services tailored for the medical industry." />
-  <meta property="og:image" content="https://www.medeaze.com/Medeazelogo.svg" />
-  <meta property="og:url" content="https://www.medeaze.com" />
-  <meta name="twitter:card" content="summary_large_image" />
-</Head>
+    <Head>
+        <title>Medeaze - Where Medical Expertise Meets Digital Excellence</title>
+        {/* Add other meta tags, stylesheets, or scripts as needed */}
+      </Head>
 
 
 
