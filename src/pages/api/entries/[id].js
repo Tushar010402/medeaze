@@ -1,5 +1,3 @@
-import { sql } from '@vercel/postgres';
-
 import { pool } from '../../../utils/db.js';
 
 // Define your username and password

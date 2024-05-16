@@ -233,23 +233,17 @@ const Navbar = () => {
     return valid;
   };
 
-  const username = 'TusharAgrawal098';
-  const password = 'TusharAgrawal@1234567890';
-  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
     }
-  
-    const basicAuth = 'Basic ' + btoa(`${username}:${password}`);
-  
+
     try {
       const response = await fetch('/api/submitForm/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': basicAuth // Add Basic Authentication header
         },
         body: JSON.stringify(formData),
       });
