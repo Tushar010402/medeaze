@@ -6,7 +6,6 @@ const EntriesList = () => {
   const [statusFilter, setStatusFilter] = useState('All');
   const [selectedDateTime, setSelectedDateTime] = useState('');
   const [remark, setRemark] = useState('');
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchData();
@@ -31,10 +30,8 @@ const EntriesList = () => {
       
       const data = await response.json();
       setEntries(data);
-      setLoading(false);
     } catch (error) {
       console.error('Error fetching entries:', error);
-      setLoading(false);
     }
   };
 
@@ -154,18 +151,13 @@ const EntriesList = () => {
             <th>Actions</th>
             <th>Remark</th>
             <th>Update</th>
+
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
-          {loading ? (
-            <tr>
-              <td colSpan="9" className="text-center py-4">Loading...</td>
-            </tr>
-          ) : (
-            entries.map((entry, index) => (
-              <TableRow key={entry.id} entry={entry} serialNumber={index + 1} />
-            ))
-          )}
+          {entries.map((entry, index) => (
+            <TableRow key={entry.id} entry={entry} serialNumber={index + 1} />
+          ))}
         </tbody>
       </table>
       <div className="mt-4">
