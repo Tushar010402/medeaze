@@ -2,6 +2,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import Head from 'next/head';
 import Select from 'react-select';
 import { Carousel } from 'react-responsive-carousel';
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
@@ -239,7 +240,7 @@ const Navbar = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3001/api/submitForm/', {
+      const response = await fetch('http://localhost:3000/api/submitForm/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -286,6 +287,10 @@ const Navbar = () => {
 
   return (
     <>
+    <Head>
+        <title>Medeaze - Where Medical Expertise Meets Digital Excellence</title>
+        {/* Add other meta tags, stylesheets, or scripts as needed */}
+      </Head>
        <nav className="bg-gray-800" id="navbarsection">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
