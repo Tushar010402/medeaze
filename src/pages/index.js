@@ -240,10 +240,15 @@ const Navbar = () => {
     }
 
     try {
+      const username = process.env.NEXT_PUBLIC_USERNAME;
+      const password = process.env.NEXT_PUBLIC_PASSWORD;
+      const encodedCredentials = btoa(`${username}:${password}`);
+
       const response = await fetch('/api/submitForm/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Basic ${encodedCredentials}`
         },
         body: JSON.stringify(formData),
       });

@@ -13,10 +13,7 @@ const EntriesList = () => {
 
   const fetchData = async () => {
     try {
-      const username = 'TusharAgrawal098';
-      const password = 'TusharAgrawal@1234567890';
-      const credentials = `${username}:${password}`;
-      const encodedCredentials = btoa(credentials);
+      const encodedCredentials = btoa(`${process.env.NEXT_PUBLIC_USERNAME}:${process.env.NEXT_PUBLIC_PASSWORD}`);
 
       const response = await fetch(`/api/entries?page=${pageNumber}&action_text=${statusFilter}`, {
         headers: {
@@ -49,10 +46,7 @@ const EntriesList = () => {
 
   const handleSubmit = async (entryId, status, scheduledDateTime, remark) => {
     try {
-      const username = 'TusharAgrawal098';
-      const password = 'TusharAgrawal@1234567890';
-      const credentials = `${username}:${password}`;
-      const encodedCredentials = btoa(credentials);
+      const encodedCredentials = btoa(`${process.env.NEXT_PUBLIC_USERNAME}:${process.env.NEXT_PUBLIC_PASSWORD}`);
 
       const response = await fetch(`/api/entries/${entryId}`, {
         method: 'POST',
@@ -151,7 +145,6 @@ const EntriesList = () => {
             <th>Actions</th>
             <th>Remark</th>
             <th>Update</th>
-
           </tr>
         </thead>
         <tbody className="bg-white divide-y divide-gray-200">
