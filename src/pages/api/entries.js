@@ -1,28 +1,9 @@
 import { sql } from '@vercel/postgres';
 
-// Define your username and password
-const USERNAME = 'TusharAgrawal098';
-const PASSWORD = 'TusharAgrawal@1234567890';
+import { pool } from '../../utils/db';
 
 export default async function handler(req, res) {
   try {
-    // Extract username and password from request headers
-    const authHeader = req.headers.authorization;
-    if (!authHeader) {
-      res.status(401).json({ error: 'Unauthorized: No credentials provided' });
-      return;
-    }
-
-    const encodedCredentials = authHeader.split(' ')[1];
-    const decodedCredentials = Buffer.from(encodedCredentials, 'base64').toString('utf-8');
-    const [username, password] = decodedCredentials.split(':');
-
-    // Verify username and password
-    if (username !== USERNAME || password !== PASSWORD) {
-      res.status(401).json({ error: 'Unauthorized: Invalid credentials' });
-      return;
-    }
-
     // Connect to the PostgreSQL database
     const client = await pool.connect();
 
@@ -58,3 +39,4 @@ export default async function handler(req, res) {
     res.status(500).json({ error: 'Internal Server Error' });
   }
 }
+
