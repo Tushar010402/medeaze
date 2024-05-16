@@ -339,6 +339,8 @@ const Navbar = () => {
         className="mt-4 text-lg text-black-500"
       >
         Delve into the realm of growth and let your practice shine.
+
+
       </motion.p>
       <motion.div
         initial={{ opacity: 0, scale: 0.5 }}
@@ -383,7 +385,8 @@ const Navbar = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, delay: 0.6 }}
           >
-            At Medeaze, we blend dental proficiency with marketing acumen to offer you strategies that are not just effective but empathetic to the core of dental care.
+           At Medeaze, we blend dental proficiency with marketing acumen to offer you strategies that are not just effective but empathetic to the core of dental care.
+
           </motion.p>
           {/* Read More Button */}
           <motion.button
@@ -460,13 +463,19 @@ const Navbar = () => {
         <section id="why-us" className="medeaze-edge-section">
             <div className="container">
                 <h2>The Medeaze Edge</h2>
-                <p>Our founder's dental roots give us the edge in understanding the nuances of your practice, ensuring strategies that resonate with both the heart and science of dentistry. With Medeaze, you'll experience:</p>
+                <p>Our founder&apos;s dental roots give us the edge in understanding the nuances of your practice, ensuring strategies that resonate with both the heart and science of dentistry. With Medeaze, you&apos;ll experience:
+</p>
                 <ul>
-                    <li><strong>Customized Solutions:</strong> Tailored strategies that address the unique challenges and goals of your dental practice.</li>
-                    <li><strong>Proven Expertise:</strong> Decades of combined experience in dental marketing and practice management.</li>
-                    <li><strong>Comprehensive Support:</strong> From website design to patient acquisition, we provide end-to-end solutions to elevate your practice.</li>
-                    <li><strong>Data-Driven Insights:</strong> Analytics-driven approach to track performance and optimize marketing efforts for maximum ROI.</li>
-                    <li><strong>Exceptional Service:</strong> Dedicated account managers committed to your success and satisfaction.</li>
+                    <li>Customized Solutions: Tailored strategies that address the unique challenges and goals of your dental practice.
+</li>
+                    <li>Proven Expertise: Decades of combined experience in dental marketing and practice management.
+</li>
+                    <li>Proven Expertise: Decades of combined experience in dental marketing and practice management.
+</li>
+                    <li>Proven Expertise: Decades of combined experience in dental marketing and practice management.
+</li>
+                    <li>Proven Expertise: Decades of combined experience in dental marketing and practice management.
+</li>
                 </ul>
             </div>
         </section>
