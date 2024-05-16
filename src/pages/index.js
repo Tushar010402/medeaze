@@ -410,7 +410,7 @@ const Navbar = () => {
                 <div className="local-seo-content">
                     <div className="seo-item">
                         <h3>Keyword Optimization</h3>
-                        <p>We conduct in-depth keyword research to identify the most relevant and high-traffic keywords for your clinic's services, ensuring that your website ranks well in local search results.</p>
+                        <p>We conduct in-depth keyword research to identify the most relevant and high-traffic keywords for your clinics services, ensuring that your website ranks well in local search results.</p>
                     </div>
                     <div className="seo-item">
                         <h3>Google My Business Optimization</h3>
@@ -437,7 +437,7 @@ const Navbar = () => {
                 <div className="engaging-patient-content">
                     <div className="patient-item">
                         <h3>User-Friendly Website Design</h3>
-                        <p>We design your clinic's website with a focus on user experience, ensuring intuitive navigation, fast loading times, and mobile responsiveness to provide a seamless browsing experience for visitors.</p>
+                        <p>We design your clinics website with a focus on user experience, ensuring intuitive navigation, fast loading times, and mobile responsiveness to provide a seamless browsing experience for visitors.</p>
                     </div>
                     <div className="patient-item">
                         <h3>Compelling Content Creation</h3>
@@ -449,7 +449,7 @@ const Navbar = () => {
                     </div>
                     <div className="patient-item">
                         <h3>Personalized Email Campaigns</h3>
-                        <p>We implement personalized email marketing campaigns to nurture leads and encourage patient loyalty, delivering relevant content, appointment reminders, and special offers tailored to each recipient's preferences.</p>
+                        <p>We implement personalized email marketing campaigns to nurture leads and encourage patient loyalty, delivering relevant content, appointment reminders, and special offers tailored to each recipient preferences.</p>
                     </div>
                     <div className="patient-item">
                         <h3>Social Media Engagement</h3>
@@ -463,7 +463,7 @@ const Navbar = () => {
         <section id="why-us" className="medeaze-edge-section">
             <div className="container">
                 <h2>The Medeaze Edge</h2>
-                <p>Our founder&apos;s dental roots give us the edge in understanding the nuances of your practice, ensuring strategies that resonate with both the heart and science of dentistry. With Medeaze, you&apos;ll experience:
+                <p>Our founders dental roots give us the edge in understanding the nuances of your practice, ensuring strategies that resonate with both the heart and science of dentistry. With Medeaze, you will experience:
 </p>
                 <ul>
                     <li>Customized Solutions: Tailored strategies that address the unique challenges and goals of your dental practice.
