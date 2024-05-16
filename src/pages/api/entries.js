@@ -1,4 +1,4 @@
-import { createPool } from '@vercel/postgres';
+import { createPool, sql } from '@vercel/postgres';
 
 // PostgreSQL connection details
 const POSTGRES_URL = process.env.POSTGRES_URL || "postgres://default:wYsbxV7P2kNj@ep-odd-cell-a1hgzrd4-pooler.ap-southeast-1.aws.neon.tech:5432/verceldb?sslmode=require";
