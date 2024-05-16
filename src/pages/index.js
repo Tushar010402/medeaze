@@ -240,7 +240,7 @@ const Navbar = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:3000/api/submitForm/', {
+      const response = await fetch('/api/submitForm/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -291,37 +291,82 @@ const Navbar = () => {
         <title>Medeaze - Where Medical Expertise Meets Digital Excellence</title>
         {/* Add other meta tags, stylesheets, or scripts as needed */}
       </Head>
-       <nav className="bg-gray-800" id="navbarsection">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-        <div className="flex-shrink-0">
+
+
+
+<nav className="bg-gray-800" id="navbarsection" onMouseLeave={closeOptions}>
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="flex items-center justify-between h-16">
+      <div className="flex-shrink-0">
         <Link href="/" legacyBehavior>
-  <a>
-    <Image src="/Medeazelogo.svg" alt="Medeaze Logo" id="logoonnavbar" width={500} height={300} />
-  </a>
-</Link>
-</div>
-<div className="hidden md:block">
-  <div className="ml-10 flex items-baseline space-x-4">
-  <Link href="/home" legacyBehavior>
-  <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-</Link>
-<Link href="/home" legacyBehavior>
-  <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-</Link>
-<Link href="/home" legacyBehavior>
-  <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-</Link>
-<Link href="/home" legacyBehavior>
-  <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">Home</a>
-</Link>
-  </div>
-</div>
-
-
+          <a>
+            <img src="/Medeazelogo.svg" alt="Medeaze Logo" id="logoonnavbar" />
+          </a>
+        </Link>
+      </div>
+      <div className="hidden md:block">
+        <div className="ml-10 flex items-baseline space-x-4">
+          <Link href="/home" legacyBehavior>
+            <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="NavBarContent">Home</a>
+          </Link>
+          <Link href="/about" legacyBehavior>
+            <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="NavBarContent">About</a>
+          </Link>
+          <div className="relative" onMouseEnter={toggleServicesOptions} onMouseLeave={closeOptions}>
+            <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="NavBarContent">Services</a>
+            {showServicesOptions && (
+              <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-white ring-opacity-5 focus:outline-none" id="Optionmenudiv" onMouseEnter={toggleServicesOptions} onMouseLeave={closeOptions}>
+                <div className="py-1" role="none">
+                  <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-4 py-2 text-sm" id="optionsinService">Marketing</a>
+                  <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-4 py-2 text-sm" id="optionsinService">Website Development</a>
+                </div>
+              </div>
+            )}
+          </div>
+          <Link href="/contact" legacyBehavior>
+            <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="NavBarContent">Contact</a>
+          </Link>
         </div>
       </div>
-    </nav>
+      <div className="-mr-2 flex md:hidden">
+        <button onClick={toggleNavbar} className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white">
+          <svg className={`${isOpen ? 'hidden' : 'block'} h-6 w-6`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16m-7 6h7"/>
+          </svg>
+          <svg className={`${isOpen ? 'block' : 'hidden'} h-6 w-6`} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div className={`${isOpen ? 'block' : 'hidden'} md:hidden`}>
+    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+      <Link href="/home" legacyBehavior>
+        <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Home</a>
+      </Link>
+      <Link href="/about" legacyBehavior>
+        <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">About</a>
+      </Link>
+      <div className="relative" onMouseEnter={toggleServicesOptions} onMouseLeave={closeOptions}>
+        <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Services</a>
+        {showServicesOptions && (
+          <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-black ring-opacity-5 focus:outline-none" onMouseEnter={toggleServicesOptions} onMouseLeave={closeOptions}>
+            <div className="py-1" role="none">
+              <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-4 py-2 text-sm">Marketing</a>
+              <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-4 py-2 text-sm">Website Development</a>
+            </div>
+          </div>
+        )}
+      </div>
+      <Link href="/contact" legacyBehavior>
+        <a className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">Contact</a>
+      </Link>
+    </div>
+  </div>
+</nav>
+
+
 
       {/* Section for Home Pages */}
       {/* Section for Home Pages */}
