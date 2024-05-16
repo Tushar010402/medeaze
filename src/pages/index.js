@@ -287,10 +287,16 @@ const Navbar = () => {
 
   return (
     <>
-    <Head>
-        <title>Medeaze - Where Medical Expertise Meets Digital Excellence</title>
-        {/* Add other meta tags, stylesheets, or scripts as needed */}
-      </Head>
+   <Head>
+  <title>Medeaze - Where Medical Expertise Meets Digital Excellence</title>
+  <meta name="description" content="Medeaze is your one-stop solution for dental clinics and dentistry. We offer digital marketing, website development, and social media marketing services tailored for the medical industry." />
+  <meta name="keywords" content="Medeaze, Dentist, Dental Clinics, Digital Marketing, Social Media Marketing, Website Development" />
+  <meta property="og:title" content="Medeaze - Where Medical Expertise Meets Digital Excellence" />
+  <meta property="og:description" content="Medeaze is your one-stop solution for dental clinics and dentistry. We offer digital marketing, website development, and social media marketing services tailored for the medical industry." />
+  <meta property="og:image" content="https://www.medeaze.com/Medeazelogo.svg" />
+  <meta property="og:url" content="https://www.medeaze.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+</Head>
 
 
 
@@ -306,7 +312,7 @@ const Navbar = () => {
       </div>
       <div className="hidden md:block">
         <div className="ml-10 flex items-baseline space-x-4">
-          <Link href="/home" legacyBehavior>
+          <Link href="/about" legacyBehavior>
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="NavBarContent">Home</a>
           </Link>
           <Link href="/about" legacyBehavior>
@@ -317,13 +323,13 @@ const Navbar = () => {
             {showServicesOptions && (
               <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-gray-800 ring-1 ring-white ring-opacity-5 focus:outline-none" id="Optionmenudiv" onMouseEnter={toggleServicesOptions} onMouseLeave={closeOptions}>
                 <div className="py-1" role="none">
-                  <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-4 py-2 text-sm" id="optionsinService">Marketing</a>
-                  <a href="#" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-4 py-2 text-sm" id="optionsinService">Website Development</a>
+                  <a href="/about" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-4 py-2 text-sm" id="optionsinService">Marketing</a>
+                  <a href="/about" className="text-gray-300 hover:bg-gray-700 hover:text-white block px-4 py-2 text-sm" id="optionsinService">Website Development</a>
                 </div>
               </div>
             )}
           </div>
-          <Link href="/contact" legacyBehavior>
+          <Link href="/about" legacyBehavior>
             <a className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium" id="NavBarContent">Contact</a>
           </Link>
         </div>
