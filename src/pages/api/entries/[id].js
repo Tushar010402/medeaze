@@ -1,4 +1,5 @@
 import { sql } from '@vercel/postgres';
+
 import { pool } from '../../../utils/db.js';
 
 // Define your username and password
@@ -32,12 +33,21 @@ export default async function handler(req, res) {
       // Get the status and remark from the request body
       const { status, remark } = req.body;
 
-      // Execute the query using sql template literal
-      await sql`
+      // Connect to the PostgreSQL database
+      const client = await pool.connect();
+
+      // Update the entry with the provided ID
+      const query = `
         UPDATE form_data
-        SET action_text = ${status}, remark_text = ${remark}, updated_at = CURRENT_TIMESTAMP
-        WHERE id = ${entryId};
+        SET action_text = $1, remark_text = $2, updated_at = CURRENT_TIMESTAMP
+        WHERE id = $3
       `;
+      
+      // Execute the query
+      await client.query(query, [status, remark, entryId]);
+
+      // Release the client back to the pool
+      client.release();
 
       // Send a success response
       res.status(200).json({ message: 'Entry updated successfully' });
@@ -47,6 +57,9 @@ export default async function handler(req, res) {
     }
   } else if (req.method === 'GET') {
     try {
+      // Connect to the PostgreSQL database
+      const client = await pool.connect();
+
       // Pagination parameters
       const pageSize = 200;
       const pageNumber = parseInt(req.query.page || 1);
@@ -54,14 +67,23 @@ export default async function handler(req, res) {
       // Calculate the offset based on page number and page size
       const offset = (pageNumber - 1) * pageSize;
 
-      // Execute the query using sql template literal
-      const entries = await sql`
+      // Query to select entries with pagination and sorting by latest
+      const query = `
         SELECT *, action_text
         FROM form_data
         ORDER BY id DESC
         LIMIT ${pageSize}
-        OFFSET ${offset};
+        OFFSET ${offset}
       `;
+
+      // Execute the query
+      const result = await client.query(query);
+
+      // Release the client back to the pool
+      client.release();
+
+      // Extract the rows from the result
+      const entries = result.rows;
 
       // Send the entries as JSON response
       res.status(200).json(entries);

@@ -233,22 +233,23 @@ const Navbar = () => {
     return valid;
   };
 
+  const username = 'TusharAgrawal098';
+  const password = 'TusharAgrawal@1234567890';
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validateForm()) {
       return;
     }
-
+  
+    const basicAuth = 'Basic ' + btoa(`${username}:${password}`);
+  
     try {
-      const username = process.env.NEXT_PUBLIC_USERNAME;
-      const password = process.env.NEXT_PUBLIC_PASSWORD;
-      const encodedCredentials = btoa(`${username}:${password}`);
-
       const response = await fetch('/api/submitForm/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Basic ${encodedCredentials}`
+          'Authorization': basicAuth // Add Basic Authentication header
         },
         body: JSON.stringify(formData),
       });
